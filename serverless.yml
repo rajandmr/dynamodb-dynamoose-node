@@ -52,3 +52,11 @@ functions:
           path: update
           method: put
           cors: true
+
+  deleteUser:
+    handler: functions/users/deleteUser.main
+    events:
+      - http:
+          path: delete
+          method: delete
+          cors: true
