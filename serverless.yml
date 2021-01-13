@@ -36,3 +36,11 @@ functions:
           path: getAll
           method: get
           cors: true
+
+  getUserById:
+    handler: functions/users/getUserById.main
+    events:
+      - http:
+          path: getOne
+          method: get
+          cors: true
