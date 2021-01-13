@@ -7,7 +7,10 @@ const { UsersModel } = require('../../Models/UserModel');
 
 module.exports.main = async (event) => {
   try {
-    const result = await UsersModel.scan().exec();
+    const request = JSON.parse(event.body);
+    const { id, ...data } = request;
+
+    const result = await UsersModel.update({ id }, { ...data });
     return getSuccessResponse(result);
   } catch (error) {
     return getErrorResponse(error);

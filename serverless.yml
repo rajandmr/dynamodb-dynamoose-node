@@ -36,3 +36,27 @@ functions:
           path: getAll
           method: get
           cors: true
+
+  getUserById:
+    handler: functions/users/getUserById.main
+    events:
+      - http:
+          path: getOne
+          method: get
+          cors: true
+
+  updateUser:
+    handler: functions/users/updateUser.main
+    events:
+      - http:
+          path: update
+          method: put
+          cors: true
+
+  deleteUser:
+    handler: functions/users/deleteUser.main
+    events:
+      - http:
+          path: delete
+          method: delete
+          cors: true
