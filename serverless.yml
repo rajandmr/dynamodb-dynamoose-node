@@ -18,7 +18,7 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
         - dynamodb:CreateTable
-      Resource: '*'
+      Resource: "*"
 
 functions:
   writeToDB:
