@@ -44,3 +44,11 @@ functions:
           path: getOne
           method: get
           cors: true
+
+  updateUser:
+    handler: functions/users/updateUser.main
+    events:
+      - http:
+          path: update
+          method: put
+          cors: true
