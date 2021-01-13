@@ -1,0 +1,38 @@
+service: dynamo-tut
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: us-east-1
+  profile: personal
+  deploymentBucket: modern-workshop-bucket
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+        - dynamodb:CreateTable
+      Resource: '*'
+
+functions:
+  writeToDB:
+    handler: functions/users/createUser.main
+    events:
+      - http:
+          path: addUser
+          method: post
+          cors: true
+
+  getAllUsers:
+    handler: functions/users/getAllUsers.main
+    events:
+      - http:
+          path: getAll
+          method: get
+          cors: true

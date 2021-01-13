@@ -1,0 +1,11 @@
+{
+  "name": "dynamo-tut",
+  "version": "1.0.0",
+  "dependencies": {
+    "dynamoose": "^2.5.0",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.671.0"
+  }
+}
