@@ -1,4 +1,4 @@
-const dynamoose = require('dynamoose');
+const dynamoose = require("dynamoose");
 
 const schema = new dynamoose.Schema(
   {
@@ -14,11 +14,12 @@ const schema = new dynamoose.Schema(
   }
 );
 
-const UsersModel = dynamoose.model('userstable', schema, {
+const UsersModel = dynamoose.model("userstable", schema, {
   create: true,
-  throughput: {
-    read: 5,
-    write: 5,
-  },
+  // throughput: {
+  //   read: 5,
+  //   write: 5,
+  // },
+  throughput: "ON_DEMAND",
 });
 module.exports = { UsersModel };
